@@ -3,11 +3,10 @@
 import './index.css'
 
 const CommentItem = props => {
-  const {each, method, classes, likeBtn, delBtn} = props
-  const {name, cmt, isLiked, id} = each
+  const {each, method, likeBtn, delBtn} = props
+  const {name, cmt, isLiked, id, initialClassName} = each
   const initial = name.slice(0, 1)
-  const randomNum = Math.floor(Math.random() * classes.length)
-  const bgItem = classes[randomNum]
+
   const likeOrUnlikeTxt = isLiked ? 'liked-text' : ''
   const likeOrUnlikeBtn = isLiked
     ? 'https://assets.ccbp.in/frontend/react-js/comments-app/liked-img.png'
@@ -23,7 +22,7 @@ const CommentItem = props => {
   return (
     <li className="li-con">
       <div className="main-cmt-con">
-        <p className={`${bgItem} initial`}>{initial}</p>
+        <p className={`${initialClassName} initial`}>{initial}</p>
         <div className="name-cmt-con">
           <div className="name-con">
             <h1 className="name">{name}</h1>
@@ -34,9 +33,13 @@ const CommentItem = props => {
       </div>
       <div className="like-del-con">
         <div className="like-img-con">
-          <button type="button" onClick={onClickLikeBtn} className="like-btn">
+          <button
+            id="like"
+            type="button"
+            onClick={onClickLikeBtn}
+            className="like-btn"
+          >
             <img
-              id="like"
               src={likeOrUnlikeBtn}
               alt="like"
               className={`like-img ${likeOrUnlikeBtn}`}
@@ -59,6 +62,7 @@ const CommentItem = props => {
           />
         </button>
       </div>
+      <hr />
     </li>
   )
 }

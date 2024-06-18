@@ -23,7 +23,19 @@ class Comments extends Component {
     event.preventDefault()
     const {name, cmt} = this.state
 
-    const newObj = {id: uuidv4(), name, cmt, isLiked: false}
+    const newObj = {
+      id: uuidv4(),
+      name,
+      cmt,
+      isLiked: false,
+      initialClassName: `initial ${
+        initialContainerBackgroundClassNames[
+          Math.floor(
+            Math.random() * initialContainerBackgroundClassNames.length,
+          )
+        ]
+      }`,
+    }
     console.log(newObj)
     this.setState(prevState => ({
       commentsList: [...prevState.commentsList, newObj],
@@ -102,7 +114,7 @@ class Comments extends Component {
           </div>
           <hr />
           <div className="cmt-section-con">
-            <p className="no-of-cmt">0</p>
+            <p className="no-of-cmt">{commentsList.length}</p>
             <p className="cmt-label">Comments</p>
           </div>
           <ul className="ul-con">
@@ -111,7 +123,6 @@ class Comments extends Component {
                 each={each}
                 key={each.id}
                 method={formatDistanceToNow}
-                classes={initialContainerBackgroundClassNames}
                 likeBtn={this.likeBtn}
                 delBtn={this.delBtn}
               />

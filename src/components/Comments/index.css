@@ -1,29 +1,52 @@
 /* Write your CSS here */
 .bg-container {
   height: 100vh;
+  padding: 20px;
 }
 .main-container {
   width: 80%;
   margin: auto;
+}
+@media screen and (max-width: 768px) {
+  .main-container {
+    width: 90%;
+  }
 }
 .comments-heading {
   font-family: 'Roboto';
   font-size: 40px;
   color: #1e293b;
 }
+
+@media screen and (max-width: 768px) {
+  .comments-heading {
+    font-size: 30px;
+  }
+}
 .comment-img-con {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+@media screen and (max-width: 768px) {
+  .comment-img-con {
+    flex-direction: column;
+    width: 100%;
+  }
+}
 .comment-con {
+  width: 100%;
+}
+@media screen and (max-width: 768px) {
+  .comment-con {
+    order: 2;
+  }
 }
 .say-para {
   font-family: 'Roboto';
   color: #475569;
 }
 .text-input {
-  width: 300px;
   margin-bottom: 20px;
   height: 40px;
   border: 2px solid #cbd2d9;
@@ -31,16 +54,28 @@
   outline: none;
   font-family: 'Roboto';
   color: #1e293b;
+  max-width: 400px;
+  width: 300px;
+}
+@media screen and (max-width: 768px) {
+  .text-input {
+    width: 100%;
+  }
 }
 
 .text-area {
-  width: 300px;
   border: 2px solid #cbd2d9;
   padding: 10px;
   outline: none;
   font-family: 'Roboto';
+  max-width: 400px;
+  width: 300px;
 }
-
+@media screen and (max-width: 768px) {
+  .text-area {
+    width: 100%;
+  }
+}
 .add-cmnt-btn {
   width: 120px;
   height: 30px;
@@ -54,6 +89,12 @@
 
 .cheer-img {
   margin-bottom: 20px;
+  width: 400px;
+}
+@media screen and (max-width: 768px) {
+  .cheer-img {
+    width: 300px;
+  }
 }
 
 .cmt-section-con {
