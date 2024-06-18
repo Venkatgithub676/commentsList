@@ -30,6 +30,10 @@
 .li-con {
   list-style-type: none;
   display: flex;
+  flex-direction: column;
+}
+.main-cmt-con {
+  display: flex;
 }
 .initial {
   width: 40px;
@@ -65,4 +69,37 @@
   font-size: 15px;
   margin-top: 0;
   color: #64748b;
+}
+.like-del-con {
+  display: flex;
+  justify-content: space-between;
+}
+
+.like-img-con {
+  display: flex;
+  align-items: center;
+}
+.like-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+.like-img {
+  margin-right: 15px;
+  width: 20px;
+}
+.like-text {
+  font-family: 'Roboto';
+  font-size: 15px;
+  cursor: pointer;
+}
+.liked-text {
+  color: #0b69ff;
+}
+.delete-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+.delete-img {
 }

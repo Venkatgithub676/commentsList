@@ -23,12 +23,31 @@ class Comments extends Component {
     event.preventDefault()
     const {name, cmt} = this.state
 
-    const newObj = {id: uuidv4(), name, cmt}
+    const newObj = {id: uuidv4(), name, cmt, isLiked: false}
     console.log(newObj)
     this.setState(prevState => ({
       commentsList: [...prevState.commentsList, newObj],
       name: '',
       cmt: '',
+    }))
+  }
+
+  likeBtn = id => {
+    this.setState(prevState => ({
+      commentsList: [
+        ...prevState.commentsList.map(each => {
+          if (each.id === id) {
+            return {...each, isLiked: !each.isLiked}
+          }
+          return each
+        }),
+      ],
+    }))
+  }
+
+  delBtn = id => {
+    this.setState(prevState => ({
+      commentsList: [...prevState.commentsList.filter(each => each.id !== id)],
     }))
   }
 
@@ -93,6 +112,8 @@ class Comments extends Component {
                 key={each.id}
                 method={formatDistanceToNow}
                 classes={initialContainerBackgroundClassNames}
+                likeBtn={this.likeBtn}
+                delBtn={this.delBtn}
               />
             ))}
           </ul>
